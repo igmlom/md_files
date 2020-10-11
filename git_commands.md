@@ -145,8 +145,28 @@ The command goes out to that remote project and pulls down all the data from tha
 
 
 ## Pushing to Your Remotes
-git push <remote> <branch>
 
+git push <remote> <branch>
+`$ git push origin master`
+
+## Inspecting a Remote
+If you want to see more information about a particular remote, you can use the git remote show <remote> command.
+
+`$ git remote show origin`
+
+## Renaming and Removing Remotes
+
+renaming
+
+```
+$ git remote rename pb paul
+$ git remote
+origin
+paul
+```
+
+removing
+`$ git remote remove paul`
 
 
 # create a remote repositry in Github
