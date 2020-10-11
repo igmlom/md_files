@@ -1,4 +1,4 @@
-
+`
 # General commands
 
 ## add git. to repository
@@ -41,8 +41,6 @@ or
 `git diff --cached`
 
 
-## see all the versions
-`git log`
 
 ## removing files
 
@@ -52,6 +50,104 @@ If you simply remove the file from your working directory, it shows up under the
 
 `git rm PROJECTS.md`
 To remove a file from Git, you have to remove it from your tracked files (more accurately, remove it from your staging area) and then commit.
+
+
+## remove all the files that end with ~
+`$ git rm \*~`
+
+## remove all the files inside log directory with .log extension
+`  $ git rm log/\*.log`
+
+
+## moving files, the same as removing
+`$ git mv file_from file_to`
+
+
+
+
+
+
+2.3 viewing the commit history
+## see all the versions
+`git log`
+
+
+## see whats happend in each commit
+`$ git log -p -2`
+
+
+
+# 2.4 Git Basics - Undoing Things
+## redo one commit back
+`$ git commit --amend`
+
+**important, while you run this line, git used the staging file for the next commit**
+
+## Unstaging a Staged File
+`$ git reset HEAD filename`
+
+the chosen file, will back to be unstage.
+
+
+# 2.5 Git Basics - Working with Remotes
+to see the remote name
+
+`$ git remote`
+
+
+output: origin
+
+## show the fetch url and the push url
+
+```
+$ git remote -v
+origin	https://github.com/schacon/ticgit (fetch)
+origin	https://github.com/schacon/ticgit (push)
+ ```
+it could look like this    
+```
+$ git remote -v
+bakkdoor  https://github.com/bakkdoor/grit (fetch)
+bakkdoor  https://github.com/bakkdoor/grit (push)
+cho45     https://github.com/cho45/grit (fetch)
+cho45     https://github.com/cho45/grit (push)
+defunkt   https://github.com/defunkt/grit (fetch)
+defunkt   https://github.com/defunkt/grit (push)
+koke      git://github.com/koke/grit.git (fetch)
+koke      git://github.com/koke/grit.git (push)
+origin    git@github.com:mojombo/grit.git (fetch)
+origin    git@github.com:mojombo/grit.git (push)
+```
+## Adding Remote Repositories
+
+ `git remote add <shortname> <url>`
+
+
+## 3 ways to get data from remote repository
+
+### git clone
+automatically sets up your local master branch to track the remote master branch (or whatever the default branch is called) on the server you cloned from.
+`$ git clone <remote>`
+
+
+
+### git pull
+ git pull generally fetches data from the server you originally cloned from and automatically tries to merge it into the code you’re currently working on.
+
+`$ git pull <remote>`
+
+
+
+### git fetch
+The command goes out to that remote project and pulls down all the data from that remote project that you don’t have yet. After you do this, you should have references to all the branches from that remote, which you can merge in or inspect at any time.
+`$ git fetch <remote>`
+
+
+
+## Pushing to Your Remotes
+git push <remote> <branch>
+
+
 
 # create a remote repositry in Github
 ## push repositry to github
